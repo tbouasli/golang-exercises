@@ -9,8 +9,10 @@ import (
 
 func main() {
 	database.ConnectDatabase()
+
 	app := fiber.New()
-	app.Get("/", routes.ListAll)
+
+	app.Get("/people", routes.ListByIdOrAll)
 
 	app.Listen(":3000")
 }
