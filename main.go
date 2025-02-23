@@ -14,6 +14,8 @@ func main() {
 
 	app.Get("/people", routes.ListByIdOrAll)
 	app.Post("/people", routes.CreateUser)
+	app.Put("/people/:id", routes.UpdateUser)
+	app.Delete("/people/:id", routes.DeleteUser)
 
 	app.Listen(":3000")
 }
