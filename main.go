@@ -13,6 +13,7 @@ func main() {
 	app := fiber.New()
 
 	app.Get("/people", routes.ListByIdOrAll)
+	app.Post("/people", routes.CreateUser)
 
 	app.Listen(":3000")
 }

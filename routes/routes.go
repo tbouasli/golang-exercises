@@ -31,3 +31,21 @@ func ListByIdOrAll(c *fiber.Ctx) error {
 
 	return c.JSON(people)
 }
+
+func CreateUser(c *fiber.Ctx) error {
+	var people models.People
+
+	user := c.BodyParser(&people)
+	if user != nil {
+		return c.SendString("Erro ao processar os dados")
+	} else if people.Name == "" || people.Age == 0 {
+		return c.SendString("Nome e idade são obrigatórios")
+	}
+
+	result := database.DB.Create(&people)
+	if result.Error != nil {
+		return c.SendString("Erro ao criar registro")
+	}
+
+	return c.JSON(people)
+}

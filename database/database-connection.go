@@ -22,8 +22,4 @@ func ConnectDatabase() {
 	if err != nil {
 		log.Fatal("Erro ao migrar o modelo:", err)
 	}
-
-	DB.Create(&models.People{Name: `Fernando`, Age: 23})
-	DB.Create(&models.People{Name: `Maria`, Age: 25})
-	DB.Create(&models.People{Name: `João`, Age: 30})
 }
